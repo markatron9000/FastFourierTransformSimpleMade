@@ -1,5 +1,6 @@
 import PySimpleGUI as sg
 import FastFourierTransforms as FFT # my custom implementation of Fast Fourier Transform
+import sympy as sp
 
 def main():
     sg.theme('BrightColors')
@@ -43,7 +44,7 @@ def main():
                 if event == "Submit":
                     window['-LEN-'].Update('Running funcion...')
                     window.Refresh()
-                    temp = list(map(lambda x: int(x), values[0].split(",")))
+                    temp = list(map(lambda x: sp.sympify(x), values[0].split(","))) #need to convert i's to sp.I to handle imaginary numbers
                     result = FFT.FastFourierTransform(temp)
                     cont = True
                     break
@@ -89,7 +90,7 @@ def main():
                 if event == "Submit":
                     window['-LEN-'].Update('Running funcion...')
                     window.Refresh()
-                    temp = list(map(lambda x: int(x), values[0].split(",")))
+                    temp = list(map(lambda x: sp.sympify(x), values[0].split(",")))
                     result = FFT.InverseFastFourierTransform(temp)
                     cont = True
                     break

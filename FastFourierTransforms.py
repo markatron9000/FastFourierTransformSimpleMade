@@ -46,5 +46,7 @@ if __name__ == "__main__":
     #time to test it out!
     testCoefficentForm = [3,2,1,0]
     print("Original:", testCoefficentForm)
-    print("After FFT:",FastFourierTransform(testCoefficentForm))
-    print("After IFFT:",InverseFastFourierTransform(testCoefficentForm))
+    temp = FastFourierTransform(testCoefficentForm)
+    print("After FFT:", temp)
+    print(type(temp[0]))
+    print("After IFFT:",InverseFastFourierTransform(temp))
